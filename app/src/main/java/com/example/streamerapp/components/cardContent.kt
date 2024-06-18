@@ -37,9 +37,12 @@ fun ElevatedCardExample() {
         ) {
             Column(
                 modifier = Modifier
-                    .padding(16.dp) // Ajoute un padding interne à la colonne
+                    .padding(16.dp), // Ajoute un padding interne à la colonne
             ) {
-                Row {
+                Row (
+                    modifier = Modifier,
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
                     Text(
                         text = "Elevated",
                     )
