@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -27,7 +28,7 @@ class MainActivity : ComponentActivity() {
                 ) { innerPadding ->
                             Header(name = "")
 
-                            Spacer(modifier = Modifier.height(200.dp))// espace entre les parties
+                            Spacer(modifier = Modifier.height(200.dp).padding(innerPadding))// espace entre les parties
 
                             ElevatedCardExample()
 
