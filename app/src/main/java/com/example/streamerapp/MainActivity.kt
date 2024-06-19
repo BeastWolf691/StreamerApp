@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -14,7 +15,6 @@ import androidx.compose.ui.unit.dp
 import com.example.streamerapp.components.ElevatedCardExample
 import com.example.streamerapp.components.Header
 import com.example.streamerapp.ui.theme.StreamerAppTheme
-import java.util.jar.Attributes.Name
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,16 +26,24 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier
                         .fillMaxSize(),
                 ) { innerPadding ->
+
+                    Column(
+                        modifier = Modifier.padding(innerPadding),
+                    ) {
                             Header(name = "")
 
-                            Spacer(modifier = Modifier.height(200.dp).padding(innerPadding))// espace entre les parties
+                            Spacer(modifier = Modifier
+                                .height(100.dp))
 
                             ElevatedCardExample()
 
+                            Spacer(modifier = Modifier
+                                .height(800.dp))
 
-
+                            ElevatedCardExample()
                         }
                     }
                 }
             }
         }
+}
