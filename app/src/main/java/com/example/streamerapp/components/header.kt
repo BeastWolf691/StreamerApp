@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.dp
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
 fun Header(
-    name: String,
     modifier: Modifier = Modifier,
 ) {
     val configuration = LocalConfiguration.current
