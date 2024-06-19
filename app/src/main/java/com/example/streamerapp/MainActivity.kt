@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
                         )
 //rajouter colums + scroll dans modifier et renseigner hauteur (dans parent scaffold) qui permet de délimiter dimension où l'on peut scroll.
                         Column (
-                            modifier = Modifier
+                            modifier = Modifier.padding(innerPadding)
                                 .verticalScroll(state = rememberScrollState())
                         ){
 
