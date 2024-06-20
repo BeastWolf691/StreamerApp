@@ -45,62 +45,62 @@ class MainActivity : ComponentActivity() {
 
                             Spacer(
                                 modifier = Modifier
-                                    .height(25.dp)
+                                    .height(15.dp)
                             )
                             ElevatedCardExample()
 
                             Spacer(
                                 modifier = Modifier
-                                    .height(25.dp)
-                            )
-
-                            ElevatedCardExample()
-
-                            Spacer(
-                                modifier = Modifier
-                                    .height(25.dp)
+                                    .height(15.dp)
                             )
 
                             ElevatedCardExample()
 
                             Spacer(
                                 modifier = Modifier
-                                    .height(25.dp)
+                                    .height(15.dp)
                             )
 
                             ElevatedCardExample()
 
                             Spacer(
                                 modifier = Modifier
-                                    .height(25.dp)
+                                    .height(15.dp)
                             )
 
                             ElevatedCardExample()
 
                             Spacer(
                                 modifier = Modifier
-                                    .height(25.dp)
+                                    .height(15.dp)
                             )
 
                             ElevatedCardExample()
 
                             Spacer(
                                 modifier = Modifier
-                                    .height(25.dp)
+                                    .height(15.dp)
                             )
 
                             ElevatedCardExample()
 
                             Spacer(
                                 modifier = Modifier
-                                    .height(25.dp)
+                                    .height(15.dp)
                             )
 
                             ElevatedCardExample()
 
                             Spacer(
                                 modifier = Modifier
-                                    .height(25.dp)
+                                    .height(15.dp)
+                            )
+
+                            ElevatedCardExample()
+
+                            Spacer(
+                                modifier = Modifier
+                                    .height(15.dp)
                             )
 
                             ElevatedCardExample()

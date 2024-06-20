@@ -1,6 +1,8 @@
 package com.example.streamerapp.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -23,17 +25,19 @@ import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.input.key.type
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Filter(onOptionSelected: (String) -> Unit) {
-    val options = listOf("A-J", "K-T", "U-Z")
+    val options = listOf("A - J", "K - T", "U - Z")
     var expanded by remember { mutableStateOf(false) }
     var selectedOptionText by remember { mutableStateOf(TextFieldValue("")) }
 
     ExposedDropdownMenuBox(
         expanded = expanded,
+        modifier = Modifier.padding(start = 10.dp).width(185.dp),
         onExpandedChange = { expanded = !expanded },
     ) {
         TextField(
@@ -50,7 +54,7 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                 },
             value = selectedOptionText,
             onValueChange = { selectedOptionText = it },
-            label = { Text("Label") },
+            label = { Text("Choix par lettre") },
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
             colors = ExposedDropdownMenuDefaults.textFieldColors(
                 focusedContainerColor = Color.White,
@@ -58,8 +62,7 @@ fun Filter(onOptionSelected: (String) -> Unit) {
             ),
             keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done)
         )
-        val filteringOptions = options.filter { it.contains(selectedOptionText.text, ignoreCase = true) }
-        DropdownMenu(
+        DropdownMenu(//en enlevant le filteroption cela permet de toujours pouvoir modifier la selection
             modifier = Modifier
                 .background(Color.White)
                 .exposedDropdownSize(true),
@@ -67,7 +70,7 @@ fun Filter(onOptionSelected: (String) -> Unit) {
             expanded = expanded,
             onDismissRequest = { expanded = false },
         ) {
-            filteringOptions.forEach { selectionOption ->
+            options.forEach { selectionOption ->
                 DropdownMenuItem(
                     text = { Text(selectionOption) },
                     onClick = {
