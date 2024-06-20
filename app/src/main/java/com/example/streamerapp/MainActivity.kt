@@ -27,7 +27,6 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier
 
-
                 ) { innerPadding ->
 
                     Column(
@@ -35,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         Header()
 
-                        Filter()
+                        Filter(onOptionSelected = {})
 
                         Column (
                             modifier = Modifier
