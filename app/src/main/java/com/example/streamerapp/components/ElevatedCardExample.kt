@@ -74,6 +74,10 @@ fun ElevatedCardExample() {
                     Spacer(modifier = Modifier.height(25.dp))// espace entre les parties
 
                     Text(
+                        text = "imageUrl",
+                    )
+
+                    Text(
                         text = "catégories",
                     )
 
