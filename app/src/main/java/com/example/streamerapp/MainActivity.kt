@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.example.streamerapp.components.ElevatedCardExample
 import com.example.streamerapp.components.Filter
 import com.example.streamerapp.components.Header
+import com.example.streamerapp.components.NavGraph
 import com.example.streamerapp.ui.theme.StreamerAppTheme
 
 class MainActivity : ComponentActivity() {

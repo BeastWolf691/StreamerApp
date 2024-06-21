@@ -51,16 +51,11 @@ fun Header(
                 tint = Color.White,
             )
 
-           // IconButton(onClick = {
-           //     val navController = null
-           //     navController.navigate("favoris")
-           // }) {
-
-                Icon(
-                    imageVector = Icons.Filled.Favorite,
-                    contentDescription = "renvoi vers pages favoris",
-                    tint = Color.White,
-                )
+            Icon(
+                imageVector = Icons.Filled.Favorite,
+                contentDescription = "renvoi vers pages favoris",
+                tint = Color.White,
+            )
 
             }
         }
