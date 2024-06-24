@@ -16,7 +16,6 @@ import androidx.compose.ui.unit.dp
 import com.example.streamerapp.components.ElevatedCardExample
 import com.example.streamerapp.components.Filter
 import com.example.streamerapp.components.Header
-import com.example.streamerapp.components.NavGraph
 import com.example.streamerapp.ui.theme.StreamerAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,21 +32,16 @@ class MainActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier.padding(innerPadding),
                     ) {
+
                         Header()
 
                         Filter(onOptionSelected = {})
 
-                        Column (
+                        Column(
                             modifier = Modifier
                                 .padding(innerPadding)
                                 .verticalScroll(state = rememberScrollState())
-                        ){
-                            ElevatedCardExample()
-
-                            Spacer(
-                                modifier = Modifier
-                                    .height(15.dp)
-                            )
+                        ) {
                             ElevatedCardExample()
 
                             Spacer(
@@ -105,6 +99,14 @@ class MainActivity : ComponentActivity() {
                             )
 
                             ElevatedCardExample()
+
+                            Spacer(
+                                modifier = Modifier
+                                    .height(15.dp)
+                            )
+
+                            ElevatedCardExample()
+
                         }
                     }
                 }
@@ -112,3 +114,5 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+

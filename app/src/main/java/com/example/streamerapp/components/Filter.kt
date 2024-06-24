@@ -33,17 +33,18 @@ import androidx.compose.ui.window.PopupProperties
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Filter(onOptionSelected: (String) -> Unit) {
-    var expanded by remember { mutableStateOf(false) }
+    var expandedone by remember { mutableStateOf(false) }
     var selectedOptionText by remember { mutableStateOf(TextFieldValue("")) }
+    var expanded by remember { mutableStateOf(false) }
 
     Box {
         Row {
 
             ExposedDropdownMenuBox(
-                expanded = expanded,
+                expanded = expandedone,
                 modifier = Modifier
                     .width(185.dp),
-                onExpandedChange = { expanded = !expanded },
+                onExpandedChange = { expandedone = !expandedone },
             ) {    val options = listOf("A - J", "K - T", "U - Z")
 
                 TextField(
@@ -52,7 +53,7 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                         .onKeyEvent { keyEvent ->
                             if (keyEvent.type == KeyEventType.KeyDown && keyEvent.key == Key.Enter) {
                                 onOptionSelected(selectedOptionText.text)
-                                expanded = false
+                                expandedone = false
                                 true
                             } else {
                                 false
@@ -61,7 +62,7 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                     value = selectedOptionText,
                     onValueChange = { selectedOptionText = it },
                     label = { Text("Choix par lettre") },
-                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedone) },
                     colors = ExposedDropdownMenuDefaults.textFieldColors(
                         focusedContainerColor = Color.White,
                         unfocusedContainerColor = Color.White
@@ -74,15 +75,15 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                         .background(Color.White)
                         .exposedDropdownSize(true),
                     properties = PopupProperties(focusable = false),
-                    expanded = expanded,
-                    onDismissRequest = { expanded = false },
+                    expanded = expandedone,
+                    onDismissRequest = { expandedone = false },
                 ) {
                     options.forEach { selectionOption ->
                         DropdownMenuItem(
                             text = { Text(selectionOption) },
                             onClick = {
                                 selectedOptionText = TextFieldValue(selectionOption)
-                                expanded = false
+                                expandedone = false
                                 onOptionSelected(selectionOption)
                             },
                             contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding,
@@ -96,7 +97,7 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                     .padding(start = 10.dp)
                     .width(185.dp),
                 onExpandedChange = { expanded = !expanded },
-            ) { val options = listOf("50K - 100M", "100M - 200M", "300M - ++")
+            ) { val options = listOf("50K - 100K", "100K - 200K", "300K - ++")
                 TextField(
                     modifier = Modifier
                         .menuAnchor()
