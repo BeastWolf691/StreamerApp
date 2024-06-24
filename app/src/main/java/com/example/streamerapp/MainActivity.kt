@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.streamerapp.components.ElevatedCardExample
@@ -18,96 +19,31 @@ import com.example.streamerapp.components.Filter
 import com.example.streamerapp.components.Header
 import com.example.streamerapp.ui.theme.StreamerAppTheme
 
+@Composable
+fun CardList() {
+    //permet de définir le nb de fois où des memes
+    // informations sont répétées et ainsi ne pas les passer manuellement
+    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+        repeat(10) {
+            ElevatedCardExample()
+            Spacer(modifier = Modifier.height(15.dp))
+        }
+    }
+}
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             StreamerAppTheme {
-                Scaffold(
-                    modifier = Modifier
-
-                ) { innerPadding ->
-
+                Scaffold { innerPadding ->
                     Column(
-                        modifier = Modifier.padding(innerPadding),
+                        modifier = Modifier.padding(innerPadding)
                     ) {
-
                         Header()
-
                         Filter(onOptionSelected = {})
-
-                        Column(
-                            modifier = Modifier
-                                .padding(innerPadding)
-                                .verticalScroll(state = rememberScrollState())
-                        ) {
-                            ElevatedCardExample()
-
-                            Spacer(
-                                modifier = Modifier
-                                    .height(15.dp)
-                            )
-
-                            ElevatedCardExample()
-
-                            Spacer(
-                                modifier = Modifier
-                                    .height(15.dp)
-                            )
-
-                            ElevatedCardExample()
-
-                            Spacer(
-                                modifier = Modifier
-                                    .height(15.dp)
-                            )
-
-                            ElevatedCardExample()
-
-                            Spacer(
-                                modifier = Modifier
-                                    .height(15.dp)
-                            )
-
-                            ElevatedCardExample()
-
-                            Spacer(
-                                modifier = Modifier
-                                    .height(15.dp)
-                            )
-
-                            ElevatedCardExample()
-
-                            Spacer(
-                                modifier = Modifier
-                                    .height(15.dp)
-                            )
-
-                            ElevatedCardExample()
-
-                            Spacer(
-                                modifier = Modifier
-                                    .height(15.dp)
-                            )
-
-                            ElevatedCardExample()
-
-                            Spacer(
-                                modifier = Modifier
-                                    .height(15.dp)
-                            )
-
-                            ElevatedCardExample()
-
-                            Spacer(
-                                modifier = Modifier
-                                    .height(15.dp)
-                            )
-
-                            ElevatedCardExample()
-
-                        }
+                        CardList()
                     }
                 }
             }
