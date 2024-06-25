@@ -34,8 +34,9 @@ import androidx.compose.ui.window.PopupProperties
 @Composable
 fun Filter(onOptionSelected: (String) -> Unit) {
     var expandedone by remember { mutableStateOf(false) }
-    var selectedOptionText by remember { mutableStateOf(TextFieldValue("")) }
+    var selectedOptionTextOne by remember { mutableStateOf(TextFieldValue("")) }
     var expanded by remember { mutableStateOf(false) }
+    var selectedOptionTextTwo by remember { mutableStateOf(TextFieldValue("")) }
 
     Box {
         Row {
@@ -52,15 +53,15 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                         .menuAnchor()
                         .onKeyEvent { keyEvent ->
                             if (keyEvent.type == KeyEventType.KeyDown && keyEvent.key == Key.Enter) {
-                                onOptionSelected(selectedOptionText.text)
+                                onOptionSelected(selectedOptionTextOne.text)
                                 expandedone = false
                                 true
                             } else {
                                 false
                             }
                         },
-                    value = selectedOptionText,
-                    onValueChange = { selectedOptionText = it },
+                    value = selectedOptionTextOne,
+                    onValueChange = { selectedOptionTextOne = it },
                     label = { Text("Choix par lettre") },
                     trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedone) },
                     colors = ExposedDropdownMenuDefaults.textFieldColors(
@@ -82,7 +83,7 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                         DropdownMenuItem(
                             text = { Text(selectionOption) },
                             onClick = {
-                                selectedOptionText = TextFieldValue(selectionOption)
+                                selectedOptionTextOne = TextFieldValue(selectionOption)
                                 expandedone = false
                                 onOptionSelected(selectionOption)
                             },
@@ -103,15 +104,15 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                         .menuAnchor()
                         .onKeyEvent { keyEvent ->
                             if (keyEvent.type == KeyEventType.KeyDown && keyEvent.key == Key.Enter) {
-                                onOptionSelected(selectedOptionText.text)
+                                onOptionSelected(selectedOptionTextTwo.text)
                                 expanded = false
                                 true
                             } else {
                                 false
                             }
                         },
-                    value = selectedOptionText,
-                    onValueChange = { selectedOptionText = it },
+                    value = selectedOptionTextTwo,
+                    onValueChange = { selectedOptionTextTwo = it },
                     label = { Text("Viewers") },
                     trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
                     colors = ExposedDropdownMenuDefaults.textFieldColors(
@@ -133,7 +134,7 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                         DropdownMenuItem(
                             text = { Text(selectionOption) },
                             onClick = {
-                                selectedOptionText = TextFieldValue(selectionOption)
+                                selectedOptionTextTwo = TextFieldValue(selectionOption)
                                 expanded = false
                                 onOptionSelected(selectionOption)
                             },

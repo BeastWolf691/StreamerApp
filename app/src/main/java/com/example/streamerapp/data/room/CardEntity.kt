@@ -15,6 +15,8 @@ import java.util.Locale.Category
 data class CardEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     @ColumnInfo(name = "pseudo") val pseudo : String,
+    @ColumnInfo(name = "letterRange") val letterRange : String,
+    @ColumnInfo(name = "viewersRange") val viewersRange: String,
     @ColumnInfo(name = "imageUrl")val imageURL: URL,
     @ColumnInfo(name = "views") val views: RemoteViews,
     @ColumnInfo(name = "category") val category: Category,
