@@ -1,5 +1,6 @@
 package com.example.streamerapp.data.room
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -11,15 +12,16 @@ import androidx.room.Update
 @Dao
 interface CardDao {
     @Insert
-    fun addNewCard(cardEntity: CardEntity)
+    fun addCardEntity(cardEntity: CardEntity)
 
-    @Query("SELECT * FROM cards")
-    fun getCards() : List<CardEntity>
+    @Query("SELECT * FROM cards ORDER BY id ASC")
+    fun getCardEntity() : List<CardEntity>
+    fun readAllData(): LiveData<List<CardEntity>>
 
     @Update
-    fun updateCard(cardEntity: CardEntity)
+    fun updateCardEntity(cardEntity: CardEntity)
 
     @Query("DELETE FROM cards WHERE id = :idCard")
     @Delete
-    fun deleteCard(idCard: Long)
+    fun deleteCardEntity(idCard: Long)
 }

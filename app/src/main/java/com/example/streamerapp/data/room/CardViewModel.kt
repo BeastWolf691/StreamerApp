@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class CardViewModel(application: Application): AndroidViewModel(application) {
 
@@ -17,7 +18,7 @@ class CardViewModel(application: Application): AndroidViewModel(application) {
     }
 
     fun addCardEntity(cardEntity: CardEntity) {
-        viewModelScope.Launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.addCardEntity(cardEntity)
         }
     }

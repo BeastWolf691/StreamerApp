@@ -14,14 +14,18 @@ abstract class CardEntityDatabase : RoomDatabase() {
         private var INSTANCE: CardEntityDatabase? = null
 
         fun getDatabase(context: Context): CardEntityDatabase {
-            return INSTANCE ?: synchronized(this) {
+            val tempInstance = INSTANCE
+            if (tempInstance != null) {
+                return tempInstance
+            }
+            synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     CardEntityDatabase::class.java,
-                    "Streamers"
+                    "cards"
                 ).build()
                 INSTANCE = instance
-                instance
+                return instance
             }
         }
     }
