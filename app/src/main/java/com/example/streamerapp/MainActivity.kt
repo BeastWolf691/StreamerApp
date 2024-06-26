@@ -22,7 +22,7 @@ import com.example.streamerapp.ui.theme.StreamerAppTheme
 @Composable
 fun CardList() {
     //permet de définir le nb de fois où des memes
-    // informations sont répétées et ainsi ne pas les passer manuellement
+    // informations seront répétées et ainsi ne pas les passer manuellement
     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
         repeat(10) {
             ElevatedCardExample()

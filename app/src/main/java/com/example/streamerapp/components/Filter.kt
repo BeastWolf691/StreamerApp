@@ -32,37 +32,38 @@ import androidx.compose.ui.window.PopupProperties
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Filter(onOptionSelected: (String) -> Unit) {
-    var expandedone by remember { mutableStateOf(false) }
-    var selectedOptionText by remember { mutableStateOf(TextFieldValue("")) }
-    var expanded by remember { mutableStateOf(false) }
+fun Filter(onOptionSelected: () -> Unit) {
+    var expandedOne by remember { mutableStateOf(false) }
+    var expandedTwo by remember { mutableStateOf(false) }
+    var selectedOptionTextOne by remember { mutableStateOf(TextFieldValue("")) }
+    var selectedOptionTextTwo by remember { mutableStateOf(TextFieldValue("")) }
 
     Box {
         Row {
-
+            // Filter by letter range
             ExposedDropdownMenuBox(
-                expanded = expandedone,
-                modifier = Modifier
-                    .width(185.dp),
-                onExpandedChange = { expandedone = !expandedone },
-            ) {    val options = listOf("A - J", "K - T", "U - Z")
+                expanded = expandedOne,
+                modifier = Modifier.width(185.dp),
+                onExpandedChange = { expandedOne = !expandedOne },
+            ) {
+                val options = listOf("A - J", "K - T", "U - Z")
 
                 TextField(
                     modifier = Modifier
                         .menuAnchor()
                         .onKeyEvent { keyEvent ->
                             if (keyEvent.type == KeyEventType.KeyDown && keyEvent.key == Key.Enter) {
-                                onOptionSelected(selectedOptionText.text)
-                                expandedone = false
+                                onOptionSelected()
+                                expandedOne = false
                                 true
                             } else {
                                 false
                             }
                         },
-                    value = selectedOptionText,
-                    onValueChange = { selectedOptionText = it },
+                    value = selectedOptionTextOne,
+                    onValueChange = { selectedOptionTextOne = it },
                     label = { Text("Choix par lettre") },
-                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedone) },
+                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedOne) },
                     colors = ExposedDropdownMenuDefaults.textFieldColors(
                         focusedContainerColor = Color.White,
                         unfocusedContainerColor = Color.White
@@ -70,50 +71,53 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                     keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done)
                 )
                 DropdownMenu(
-                    //en enlevant le filteroption cela permet de toujours pouvoir modifier la selection
                     modifier = Modifier
                         .background(Color.White)
                         .exposedDropdownSize(true),
                     properties = PopupProperties(focusable = false),
-                    expanded = expandedone,
-                    onDismissRequest = { expandedone = false },
+                    expanded = expandedOne,
+                    onDismissRequest = { expandedOne = false },
                 ) {
                     options.forEach { selectionOption ->
                         DropdownMenuItem(
                             text = { Text(selectionOption) },
                             onClick = {
-                                selectedOptionText = TextFieldValue(selectionOption)
-                                expandedone = false
-                                onOptionSelected(selectionOption)
+                                selectedOptionTextOne = TextFieldValue(selectionOption)
+                                expandedOne = false
+                                onOptionSelected()
                             },
                             contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding,
                         )
                     }
                 }
             }
+
+            // Filter by viewers range
             ExposedDropdownMenuBox(
-                expanded = expanded,
+                expanded = expandedTwo,
                 modifier = Modifier
                     .padding(start = 10.dp)
                     .width(185.dp),
-                onExpandedChange = { expanded = !expanded },
-            ) { val options = listOf("50K - 100K", "100K - 200K", "300K - ++")
+                onExpandedChange = { expandedTwo = !expandedTwo },
+            ) {
+                val options = listOf("50K - 100K", "100K - 200K", "300K - ++")
+
                 TextField(
                     modifier = Modifier
                         .menuAnchor()
                         .onKeyEvent { keyEvent ->
                             if (keyEvent.type == KeyEventType.KeyDown && keyEvent.key == Key.Enter) {
-                                onOptionSelected(selectedOptionText.text)
-                                expanded = false
+                                onOptionSelected()
+                                expandedTwo = false
                                 true
                             } else {
                                 false
                             }
                         },
-                    value = selectedOptionText,
-                    onValueChange = { selectedOptionText = it },
+                    value = selectedOptionTextTwo,
+                    onValueChange = { selectedOptionTextTwo = it },
                     label = { Text("Viewers") },
-                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedTwo) },
                     colors = ExposedDropdownMenuDefaults.textFieldColors(
                         focusedContainerColor = Color.White,
                         unfocusedContainerColor = Color.White
@@ -121,21 +125,20 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                     keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done)
                 )
                 DropdownMenu(
-                    //en enlevant le filteroption cela permet de toujours pouvoir modifier la selection
                     modifier = Modifier
                         .background(Color.White)
                         .exposedDropdownSize(true),
                     properties = PopupProperties(focusable = false),
-                    expanded = expanded,
-                    onDismissRequest = { expanded = false },
+                    expanded = expandedTwo,
+                    onDismissRequest = { expandedTwo = false },
                 ) {
                     options.forEach { selectionOption ->
                         DropdownMenuItem(
                             text = { Text(selectionOption) },
                             onClick = {
-                                selectedOptionText = TextFieldValue(selectionOption)
-                                expanded = false
-                                onOptionSelected(selectionOption)
+                                selectedOptionTextTwo = TextFieldValue(selectionOption)
+                                expandedTwo = false
+                                onOptionSelected()
                             },
                             contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding,
                         )
@@ -145,5 +148,3 @@ fun Filter(onOptionSelected: (String) -> Unit) {
         }
     }
 }
-
-
