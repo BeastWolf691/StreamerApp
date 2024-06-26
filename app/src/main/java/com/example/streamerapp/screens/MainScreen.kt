@@ -30,7 +30,7 @@ fun MainScreen(messageController: NavHostController, navController: NavControlle
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 20.dp)
+                .padding(horizontal = 10.dp)
         ) {
             IconButton(onClick = { navController.navigate("FavoritesScreen") }) {
                 Icon(Icons.Outlined.Favorite, "Coeur")
@@ -42,7 +42,7 @@ fun MainScreen(messageController: NavHostController, navController: NavControlle
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.Black)
+                .background(Color.Gray)
         )
         {
 
