@@ -59,7 +59,7 @@ fun CardList() {
     //permet de définir le nb de fois où des memes
     // informations seront répétées et ainsi ne pas les passer manuellement
     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-        repeat(10) {
+        repeat(15) {
             ElevatedCardExample()
             Spacer(modifier = Modifier.height(15.dp))
         }
