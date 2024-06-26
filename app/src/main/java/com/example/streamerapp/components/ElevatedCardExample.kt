@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 fun ElevatedCardExample() {
 
     Box (//équivaut a un container
-        Modifier.height(800.dp)
+        Modifier.height(850.dp)
     ){
         Column(
             modifier = Modifier
@@ -56,14 +56,14 @@ fun ElevatedCardExample() {
                             text = "Bel Air",
                         )
             
-                        Spacer(modifier = Modifier.padding(start = 175.dp))// espace entre les parties
+                        Spacer(modifier = Modifier.padding(start = 225.dp))// espace entre les parties
 
                         Icon(
                             imageVector = Icons.Filled.AddCircle,
                             contentDescription = "",
                         )
 
-                        Spacer(modifier = Modifier.padding(start = 10.dp))// espace entre les parties
+                        Spacer(modifier = Modifier.padding(start = 20.dp))// espace entre les parties
 
                         Icon(
                             imageVector = Icons.Filled.Delete,

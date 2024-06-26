@@ -4,32 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.example.streamerapp.components.ElevatedCardExample
-import com.example.streamerapp.components.Filter
-import com.example.streamerapp.components.Header
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.streamerapp.screens.FavoritesScreen
+import com.example.streamerapp.screens.HomeScreen
 import com.example.streamerapp.ui.theme.StreamerAppTheme
-
-@Composable
-fun CardList() {
-    //permet de définir le nb de fois où des memes
-    // informations seront répétées et ainsi ne pas les passer manuellement
-    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-        repeat(10) {
-            ElevatedCardExample()
-            Spacer(modifier = Modifier.height(15.dp))
-        }
-    }
-}
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,16 +17,24 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             StreamerAppTheme {
-                Scaffold { innerPadding ->
-                    Column(
-                        modifier = Modifier.padding(innerPadding)
-                    ) {
-                        Header()
-                        Filter(onOptionSelected = {})
-                        CardList()
+                val navController = rememberNavController();
+                val messageController = rememberNavController();
+                NavHost(navController = messageController, startDestination = "Home") {
+                    composable("Home") {
+                        HomeScreen(
+                            navController = navController,
+                            messageController = messageController
+                        )
+                    }
+                    composable("Favoris") {
+                        FavoritesScreen(
+                            navController = navController,
+                            messageController = messageController
+                        )
                     }
                 }
             }
+
         }
     }
 }
