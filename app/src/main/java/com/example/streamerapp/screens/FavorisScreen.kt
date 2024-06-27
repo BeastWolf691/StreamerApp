@@ -28,12 +28,12 @@ fun FavoritesScreen(messageController: NavHostController, navController: NavCont
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 10.dp)
+                .padding()
         ) {
             IconButton(onClick = { navController.navigate("MainScreen") }) {
                 Icon(Icons.Outlined.Home, "Home")
             }
-            Spacer(modifier = Modifier.padding(start = 20.dp))// espace entre les parties
+            Spacer(modifier = Modifier.padding())// espace entre les parties
 
             Filter (onOptionSelected = {})
         }

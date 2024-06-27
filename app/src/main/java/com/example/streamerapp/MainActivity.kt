@@ -10,6 +10,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.streamerapp.screens.FavoritesScreen
 import com.example.streamerapp.screens.HomeScreen
 import com.example.streamerapp.ui.theme.StreamerAppTheme
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+
 //interface mobile sur model pixel 3a API34
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             StreamerAppTheme {
+                val db = Firebase.firestore
                 val navController = rememberNavController();
                 val messageController = rememberNavController();
                 NavHost(navController = messageController, startDestination = "Home") {

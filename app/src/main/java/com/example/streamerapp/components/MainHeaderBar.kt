@@ -17,7 +17,7 @@ fun MainHeaderBar(modifier: Modifier = Modifier, navController: NavHostControlle
     Row(
 //        horizontalArrangement = Arrangement.SpaceAround,
         modifier = Modifier.fillMaxWidth()
-        .height(15.dp)
+        .height(0.dp)
     ) {
         HeaderBarIcon(
             Icons.Filled.Home,

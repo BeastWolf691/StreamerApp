@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -83,4 +84,13 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.xerial:sqlite-jdbc:3.34.0")
+}
+
+dependencies {
+    implementation(libs.firebase.firestore)// Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+
+    // Add the dependency for the Realtime Database library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-database")
 }

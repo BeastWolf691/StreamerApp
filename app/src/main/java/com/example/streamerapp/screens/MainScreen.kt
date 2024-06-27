@@ -30,12 +30,12 @@ fun MainScreen(messageController: NavHostController, navController: NavControlle
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 10.dp)
+                .padding()
         ) {
             IconButton(onClick = { navController.navigate("FavoritesScreen") }) {
                 Icon(Icons.Outlined.Favorite, "Coeur")
             }
-            Spacer(modifier = Modifier.padding(start = 20.dp))// espace entre les parties
+            Spacer(modifier = Modifier.padding())// espace entre les parties
 
             Filter (onOptionSelected = {})
         }

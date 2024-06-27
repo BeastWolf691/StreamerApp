@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "241402512013",
+    "project_id": "streamerapp-8a4a4",
+    "storage_bucket": "streamerapp-8a4a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241402512013:android:8337dc15f3fe5589ab98c4",
+        "android_client_info": {
+          "package_name": "com.example.streamerapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo-mXv_y4M_aqa-5eKzVo-KOj9oEGWaZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

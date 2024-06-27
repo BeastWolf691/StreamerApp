@@ -56,7 +56,7 @@ fun ElevatedCardExample() {
                             text = "Bel Air",
                         )
             
-                        Spacer(modifier = Modifier.padding(start = 225.dp))// espace entre les parties
+                        Spacer(modifier = Modifier.padding(start = 180.dp))// espace entre les parties
 
                         Icon(
                             imageVector = Icons.Filled.AddCircle,

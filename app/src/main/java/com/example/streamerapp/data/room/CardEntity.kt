@@ -13,17 +13,17 @@ import java.util.Locale.Category
 
 @Entity(tableName = "cards")
 data class CardEntity(
-    @PrimaryKey(autoGenerate = true) val id: Long = 0,
-    @ColumnInfo(name = "pseudo") val pseudo : String,
-    @ColumnInfo(name = "letterRange") val letterRange : String,
-    @ColumnInfo(name = "viewersRange") val viewersRange: String,
-    @ColumnInfo(name = "imageUrl")val imageURL: URL,
-    @ColumnInfo(name = "views") val views: RemoteViews,
-    @ColumnInfo(name = "category") val category: Category,
-    @ColumnInfo(name = "languages") val languages: TextLanguage,
-    @ColumnInfo(name = "text") val text: Text,
-    @ColumnInfo(name = "links") val links: TextLinks,
-    @ColumnInfo(name = "video") val video: ActivityResultContracts.CaptureVideo
+   val id: Long = 0,
+   val pseudo : String,
+   val letterRange : String,
+   val viewersRange: String,
+   val imageURL: URL,
+   val views: RemoteViews,
+   val category: Category,
+   val languages: TextLanguage,
+   val text: Text,
+   val links: TextLinks,
+   val video: ActivityResultContracts.CaptureVideo
 
 )
 
