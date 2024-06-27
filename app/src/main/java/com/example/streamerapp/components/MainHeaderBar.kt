@@ -15,7 +15,7 @@ import com.example.streamerapp.components.HeaderBar.HeaderBarIcon
 @Composable
 fun MainHeaderBar(modifier: Modifier = Modifier, navController: NavHostController) {
     Row(
-        horizontalArrangement = Arrangement.SpaceAround,
+//        horizontalArrangement = Arrangement.SpaceAround,
         modifier = Modifier.fillMaxWidth()
         .height(15.dp)
     ) {

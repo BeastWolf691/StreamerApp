@@ -10,7 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.streamerapp.screens.FavoritesScreen
 import com.example.streamerapp.screens.HomeScreen
 import com.example.streamerapp.ui.theme.StreamerAppTheme
-
+//interface mobile sur model pixel 3a API34
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
