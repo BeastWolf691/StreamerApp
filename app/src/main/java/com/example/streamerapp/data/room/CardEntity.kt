@@ -1,43 +1,66 @@
-package com.example.streamerapp.data.room
+package com.example.streamerapp.data.firebase
 
-import android.view.textclassifier.TextLanguage
-import android.view.textclassifier.TextLinks
-import android.widget.RemoteViews
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import org.w3c.dom.Text
-import java.net.URL
-import java.util.Locale.Category
+import org.json.JSONObject
 
 @Entity(tableName = "cards")
 data class CardEntity(
-    val id: Long = 0,
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val pseudo: String,
     val letterRange: String,
     val viewersRange: String,
-    val imageURL: URL,
-    val views: RemoteViews,
-    val category: Category,
-    val languages: TextLanguage,
-    val text: Text,
-    val links: TextLinks,
-    val video: ActivityResultContracts.CaptureVideo,
+    val imageURL: String,
+    val views: String,
+    val category: String,
+    val languages: String,
+    val text: String,
+    val links: String,
+    val video: String,
 )
 
-private val client = OkHttpClient()
+object StreamerApi {
+    private val client = OkHttpClient()
 
-fun executeRequest(): String {
-    val request = Request.Builder()
-        .url("https://twitchtracker.com/channels/ranking/french")
-        .build()
+    fun fetchStreamerDetails(pseudo: String): CardEntity? {
+        val url = "https://twitchtracker.com/channels/ranking/french/$pseudo" // Remplacez par l'URL de votre API
+        val request = Request.Builder()
+            .url(url)
+            .build()
 
-    client.newCall(request).execute().use { response ->
-        if (!response.isSuccessful) return "Url not founded"
-        return response.body!!.string()
+        client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) return null
+
+            val responseBody = response.body?.string()
+            val json = JSONObject(responseBody)
+
+            return CardEntity(
+                pseudo = json.getString("pseudo"),
+                letterRange = json.getString("letterRange"),
+                viewersRange = json.getString("viewersRange"),
+                imageURL = json.getString("imageURL"),
+                views = json.getString("views"),
+                category = json.getString("category"),
+                languages = json.getString("languages"),
+                text = json.getString("text"),
+                links = json.getString("links"),
+                video = json.getString("video")
+            )
+        }
     }
 }
 
+// Exemple d'utilisation :
+fun main() {
+    val pseudo = "example_streamer"
+    val cardEntity = StreamerApi.fetchStreamerDetails(pseudo)
 
-
+    if (cardEntity != null) {
+        println("Streamer Card created: $cardEntity")
+        // Utilisez cardEntity pour afficher ou sauvegarder les détails du streameur
+    } else {
+        println("Failed to fetch streamer details for pseudo: $pseudo")
+    }
+}
