@@ -16,10 +16,10 @@ import com.google.firebase.firestore.ktx.firestore
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val db = com.google.firebase.ktx.Firebase.firestore
         enableEdgeToEdge()
         setContent {
             StreamerAppTheme {
-                val db = com.google.firebase.ktx.Firebase.firestore
                 val navController = rememberNavController();
                 val messageController = rememberNavController();
                 NavHost(navController = messageController, startDestination = "Home") {
