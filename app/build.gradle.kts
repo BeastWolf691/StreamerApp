@@ -87,11 +87,27 @@ dependencies {
 }
 
 dependencies {
-    implementation(libs.firebase.common.ktx)
-    implementation(libs.firebase.firestore)// Import the BoM for the Firebase platform
-    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
 
-    // Add the dependency for the Realtime Database library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation("com.google.firebase:firebase-database")
+    implementation(libs.androidx.runtime.livedata)
+    implementation (platform("com.google.firebase:firebase-bom:31.1.1"))
+    implementation ("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+
+
+    // Jetpack Compose
+    implementation ("androidx.compose.ui:ui:1.3.1")
+    implementation ("androidx.compose.material:material:1.3.1")
+    implementation ("androidx.compose.ui:ui-tooling-preview:1.3.1")
+    implementation ("androidx.lifecycle:lifecycle-runtime-compose:2.5.1")
+    implementation ("androidx.activity:activity-compose:1.5.1")
+
+    // ViewModel
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+
+    // Firebase
+    implementation (platform("com.google.firebase:firebase-bom:31.1.1"))
+    implementation ("com.google.firebase:firebase-firestore-ktx")
+
 }

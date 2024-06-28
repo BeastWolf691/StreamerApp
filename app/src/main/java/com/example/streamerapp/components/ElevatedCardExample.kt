@@ -55,7 +55,7 @@ fun ElevatedCardExample() {
                         Text(
                             text = "Bel Air",
                         )
-            
+
                         Spacer(modifier = Modifier.padding(start = 180.dp))// espace entre les parties
 
                         Icon(

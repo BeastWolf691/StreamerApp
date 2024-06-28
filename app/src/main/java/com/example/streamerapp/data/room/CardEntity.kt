@@ -4,9 +4,7 @@ import android.view.textclassifier.TextLanguage
 import android.view.textclassifier.TextLinks
 import android.widget.RemoteViews
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.PrimaryKey
 import org.w3c.dom.Text
 import java.net.URL
 import java.util.Locale.Category
@@ -26,4 +24,3 @@ data class CardEntity(
    val video: ActivityResultContracts.CaptureVideo
 
 )
-
