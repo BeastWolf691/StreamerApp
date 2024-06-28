@@ -95,7 +95,7 @@ fun Filter(onOptionSelected: (String) -> Unit) {
                 expanded = expanded,
                 modifier = Modifier
                     .padding(start = 10.dp)
-                    .width(130.dp),
+                    .width(180.dp),
                 onExpandedChange = { expanded = !expanded },
             ) { val options = listOf("50K - 100K", "100K - 200K", "300K - ++")
                 TextField(

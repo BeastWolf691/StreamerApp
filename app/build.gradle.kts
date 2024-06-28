@@ -87,6 +87,7 @@ dependencies {
 }
 
 dependencies {
+    implementation(libs.firebase.common.ktx)
     implementation(libs.firebase.firestore)// Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
 
