@@ -1,4 +1,4 @@
-//package com.example.streamerapp.viewmodel
+package com.example.streamerapp.components//package com.example.streamerapp.viewmodel
 //
 //import androidx.lifecycle.ViewModel
 //import androidx.lifecycle.ViewModelProvider
